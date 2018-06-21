@@ -22,7 +22,7 @@ import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 
 /**
  * Created by XiaoJianjun on 2017/4/28.
- * 播放器
+ * 最终播放器播放器
  */
 public class NiceVideoPlayer extends FrameLayout
         implements INiceVideoPlayer,
@@ -102,7 +102,9 @@ public class NiceVideoPlayer extends FrameLayout
     private String mUrl;
     private Map<String, String> mHeaders;
     private int mBufferPercentage;
-    private boolean continueFromLastPosition = true;
+
+    //是否从上一个最后位置开始
+    private boolean continueFromLastPosition = false;
     private long skipToPosition;
 
     public NiceVideoPlayer(Context context) {
@@ -172,6 +174,7 @@ public class NiceVideoPlayer extends FrameLayout
     public void start() {
         if (mCurrentState == STATE_IDLE) {
             NiceVideoPlayerManager.instance().setCurrentNiceVideoPlayer(this);
+//            、、单一职责
             initAudioManager();
             initMediaPlayer();
             initTextureView();

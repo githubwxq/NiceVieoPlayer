@@ -26,7 +26,7 @@ import java.util.Locale;
  * Created by XiaoJianjun on 2017/6/21.
  * 仿腾讯视频热点列表页播放器控制器.
  */
-public class TxVideoPlayerController
+public class TxMusicPlayerController
         extends NiceVideoPlayerController
         implements View.OnClickListener,
         SeekBar.OnSeekBarChangeListener,
@@ -83,7 +83,7 @@ public class TxVideoPlayerController
 
     private boolean hasRegisterBatteryReceiver; // 是否已经注册了电池广播
 
-    public TxVideoPlayerController(Context context) {
+    public TxMusicPlayerController(Context context) {
         super(context);
         mContext = context;
         init();
@@ -204,15 +204,18 @@ public class TxVideoPlayerController
             case NiceVideoPlayer.STATE_IDLE:
                 break;
             case NiceVideoPlayer.STATE_PREPARING:
-                mImage.setVisibility(View.GONE);
-                mLoading.setVisibility(View.VISIBLE);
-                mLoadText.setText("正在准备...");
-                mError.setVisibility(View.GONE);
-                mCompleted.setVisibility(View.GONE);
-                mTop.setVisibility(View.GONE);
-                mBottom.setVisibility(View.GONE);
+//                mImage.setVisibility(View.GONE);
+//                mLoading.setVisibility(View.VISIBLE);
+//                mLoadText.setText("正在准备...");
+//                mError.setVisibility(View.GONE);
+//                mCompleted.setVisibility(View.GONE);
+//                mTop.setVisibility(View.GONE);
+                mBottom.setVisibility(View.VISIBLE);
                 mCenterStart.setVisibility(View.GONE);
                 mLength.setVisibility(View.GONE);
+                mLoading.setVisibility(View.GONE);
+                mRestartPause.setImageResource(R.drawable.ic_player_pause);
+                startDismissTopBottomTimer();
                 break;
             case NiceVideoPlayer.STATE_PREPARED:
                 startUpdateProgressTimer();

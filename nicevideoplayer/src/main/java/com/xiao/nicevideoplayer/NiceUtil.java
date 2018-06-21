@@ -60,6 +60,7 @@ public class NiceUtil {
                 .clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 
+//    、、隐藏bar并且全屏
     public static void hideActionBar(Context context) {
         ActionBar ab = getAppCompActivity(context).getSupportActionBar();
         if (ab != null) {

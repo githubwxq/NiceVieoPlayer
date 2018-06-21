@@ -22,6 +22,7 @@ public class ChangeClarityDialog extends Dialog {
     private LinearLayout mLinearLayout;
     private int mCurrentCheckedIndex;
 
+//    、、全屏dialog
     public ChangeClarityDialog(Context context) {
         super(context, R.style.dialog_change_clarity);
         init(context);
@@ -29,6 +30,7 @@ public class ChangeClarityDialog extends Dialog {
 
     private void init(Context context) {
         mLinearLayout = new LinearLayout(context);
+//        、、内容居中
         mLinearLayout.setGravity(Gravity.CENTER);
         mLinearLayout.setOrientation(LinearLayout.VERTICAL);
         mLinearLayout.setOnClickListener(new View.OnClickListener() {
